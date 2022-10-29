@@ -30,7 +30,7 @@ export const updatePost = async (req, res) => {
         return res.status(404).send('No such id');
 
     const updatedPost = await PostMessage.findByIdAndUpdate(_id, { ...post, _id }, { new: true });
-    res.json(updatePost);
+    res.json(updatedPost);
 }
 
 export const deletePost = async (req, res) => {
