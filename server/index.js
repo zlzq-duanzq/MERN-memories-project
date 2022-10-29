@@ -13,6 +13,10 @@ app.use(cors());
 
 app.use('/posts', postRoutes);
 
+app.get('/', (req, res) => {
+    res.send("APP is running!");
+});
+
 // mongodb.com/cloud/atlas
 // henry-duanzq
 // 180326duanzq
