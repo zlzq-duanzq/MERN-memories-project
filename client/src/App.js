@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate,useNavigate } from 'react-router-dom';
 
 import Home from './components/Home/Home';
 import Navbar from './components/Navbar/Navbar';
@@ -15,7 +15,7 @@ const App = () => {
       <Container maxWidth="lg">
         <Navbar />
         <Routes>
-          {/* <Route path="/" element={() => <Navigate to="/posts" />} /> */}
+          <Route path="/" element={<Home />} />
           <Route path="/posts" element={<Home />} />
           <Route path="/posts/search" element={<Home />} />
           <Route path="/posts/:id" element={<PostDetails />} />
