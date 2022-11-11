@@ -4,6 +4,7 @@ import useStyles from './styles';
 import FileBase from 'react-file-base64';
 import { useDispatch, useSelector } from 'react-redux';
 import { createPost, updatePost } from '../../actions/posts';
+import { useNavigate } from 'react-router-dom';
 
 const Form = ({ currentId, setCurrentId }) => {
     const [postData, setPostData] = useState({ creator: '', title:'', message:'', tags:'', selectedFile:'' });
@@ -11,6 +12,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
     const dispatch = useDispatch();
     const classes = useStyles();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if(post) setPostData(post);
@@ -32,7 +34,7 @@ const Form = ({ currentId, setCurrentId }) => {
         setPostData({ creator: '', title:'', message:'', tags:'', selectedFile:'' });
     }
     return (
-        <Paper className={classes.paper}>
+        <Paper className={classes.paper} elevation={6}>
             <form autoComplete='off' noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
             <Typography variant='h6'>{currentId ? 'Editing': 'Creating'} a Memory</Typography>
             <TextField name="creator" variant="outlined" label="Creator" fullWidth value={postData.creator} onChange={(e) => setPostData({ ...postData, creator: e.target.value })}
