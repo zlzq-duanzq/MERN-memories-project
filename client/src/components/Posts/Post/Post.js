@@ -18,11 +18,10 @@ const Post = ({ post, setCurrentId }) => {
   return (
     <Card className={classes.card} raised elevation={6}>
     {/* <ButtonBase component="span" className={classes.cardActions} onClick={openPost}> */}
-    {/* <div className={classes.cardActions} onClick={openPost}> */}
       <CardMedia className={classes.media} image={post.selectedFile} title={post.title} />
       <div className={classes.overlay}>
         <Typography variant="h6">{post.creator}</Typography>
-        {/* <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography> */}
+        <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
       </div>
       <div className={classes.overlay2}>
         <Button style={{ color: 'white' }} size="small" onClick={() => setCurrentId(post._id)}><MoreHorizIcon fontSize="default" /></Button>
@@ -34,7 +33,6 @@ const Post = ({ post, setCurrentId }) => {
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">{post.message}</Typography>
       </CardContent>
-    {/* </div> */}
     {/* </ButtonBase> */}
 
       <CardActions className={classes.cardActions}>
